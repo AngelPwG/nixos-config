@@ -9,7 +9,7 @@
     mpvpaper mako wofi waybar swappy sway findutils vesktop
     coreutils lxqt.lxqt-policykit udiskie grim slurp
     pulseaudio libnotify firefox-devedition 
-    xcfe.thunar zip unzip p7zip
+    thunar zip unzip p7zip
   ];
 
   services.gammastep = {
