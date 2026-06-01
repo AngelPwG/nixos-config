@@ -110,7 +110,7 @@ bindsym $mod+c kill
 bindsym $mod+r exec $menu
 
 # Script output changer
-bindsym $mod+p exec sh $HOME/cambiar_audio.sh
+bindsym $mod+p exec sh $HOME/.config/sway/cambiar_audio.sh
 
 # Dismiss notifications
 bindsym Control+space exec makoctl dismiss
