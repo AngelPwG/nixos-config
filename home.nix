@@ -8,8 +8,8 @@
     alacritty zed-editor btop jdk21 gcc git wl-clipboard ffmpeg
     mpvpaper mako wofi waybar swappy sway findutils vesktop
     coreutils lxqt.lxqt-policykit udiskie grim slurp
-    pulseaudio libnotify firefox-developer-edition
-    dolphin zip unzip p7zip
+    pulseaudio libnotify firefox-devedition 
+    xcfe.thunar zip unzip p7zip
   ];
 
   services.gammastep = {
