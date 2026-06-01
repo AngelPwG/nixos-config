@@ -4,13 +4,13 @@
 
 { config, pkgs, ... }:
 let
-	  home-manager = builtins.fetchTarball "https://github.com/nix-community/archive/release-24.05.tar.gz";
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
 in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import "{home-manager}/nixos")
+      (import "${home-manager}/nixos")
     ];
 
   # Bootloader.
@@ -94,16 +94,8 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
-    git
-    wl-clipboard
-    alacritty
-    zellij
-    jdk21
-    gcc
-    gnumake
-    cargo
-    wget
+    neovim git wl-clipboard alacritty
+    zellij gnumake cargo wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
