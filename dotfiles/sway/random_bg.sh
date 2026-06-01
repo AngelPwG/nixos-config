@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR_FONDOS="$HOME/Vídeos/Wallpapers"
+DIR_FONDOS="$HOME/Videos/Wallpapers"
 
 VIDEO_ELEGIDO=$(find "$DIR_FONDOS" -type f \( -name "*.mp4" -o -name "*.webm" \) | shuf -n 1)
 
