@@ -2,11 +2,11 @@
 
   home.username = "angelpwg";
   home.homeDirectory = "/home/angelpwg";
-  home.stateVersion = "24.05";
+  home.stateVersion = "26.05";
   
   home.packages = with pkgs; [
     alacritty zed-editor btop jdk21 gcc git wl-clipboard ffmpeg
-    mpvpaper mako wofi waybar swaynag swappy sway findutils
+    mpvpaper mako wofi waybar swappy sway findutils
     coreutils lxqt.lxqt-policykit udiskie
   ];
 

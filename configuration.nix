@@ -4,7 +4,7 @@
 
 { config, pkgs, ... }:
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz";
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
 in
 {
   imports =
@@ -89,7 +89,7 @@ in
   programs.sway.enable = true;
   services.xserver.wacom.enable = true;
   security.polkit.enable = true;
-  services.udisk2.enable = true;
+  services.udisks2.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
