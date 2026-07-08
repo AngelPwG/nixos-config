@@ -13,6 +13,7 @@ in
       (import "${home-manager}/nixos")
     ];
 
+  nixpkgs.config.allowUnfree = true;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -43,6 +44,8 @@ in
 
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
+
+  services.flatpak.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -87,6 +90,12 @@ in
   };
 
   programs.sway.enable = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
   services.xserver.wacom.enable = true;
   security.polkit.enable = true;
   services.udisks2.enable = true;

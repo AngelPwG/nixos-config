@@ -3,14 +3,22 @@
   home.username = "angelpwg";
   home.homeDirectory = "/home/angelpwg";
   home.stateVersion = "26.05";
+
+  nixpkgs.config.allowUnfree = true;
   
   home.packages = with pkgs; [
     alacritty zed-editor btop jdk21 gcc git wl-clipboard ffmpeg
     mpvpaper mako wofi waybar swappy sway findutils vesktop
     coreutils lxqt.lxqt-policykit udiskie grim slurp
     pulseaudio libnotify firefox-devedition 
-    thunar zip unzip p7zip
+    thunar zip unzip p7zip vesktop
   ];
+  home.pointerCursor = {
+    name = "Catppuccin-Mocha-Dark-Cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
+    size = 24;
+    x11.enable = true;
+  };
 
   services.gammastep = {
     enable = true;
