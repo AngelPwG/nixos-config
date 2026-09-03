@@ -1,4 +1,4 @@
-style=$HOME/.config/wofi/style.css
+style=~/.config/wofi/style.css
 xoffset=710
 yoffset=275
 show=drun

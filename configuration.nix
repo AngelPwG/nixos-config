@@ -21,6 +21,10 @@ in
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableRedistributableFirmware = true;
+  hardware.graphics = {
+   enable = true;
+   enable32Bit = true;
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -42,10 +46,14 @@ in
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "catppuccin-mocha-mauve";
+  };
 
   services.flatpak.enable = true;
+  services.tailscale.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -85,7 +93,6 @@ in
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
     ];
   };
 
@@ -105,6 +112,10 @@ in
   environment.systemPackages = with pkgs; [
     neovim git wl-clipboard alacritty
     zellij gnumake cargo wget
+    (catppuccin-sddm.override {
+      flavor = "mocha";
+      background = "${./dotfiles/sway/bg.jpg}";
+    })
   ];
 
   fonts.packages = with pkgs; [

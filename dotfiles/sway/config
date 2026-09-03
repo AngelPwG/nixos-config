@@ -44,6 +44,8 @@ assign [app_id="org.pwmt.zathura"] 5
 assign [class="Gimp-2.10"] 6
 assign [app_id="audacity"] 6
 
+seat * xcursor_theme catppuccin-mocha-dark-cursors 24
+
 # Keybindings
 input * xkb_layout "latam"
 
@@ -108,6 +110,8 @@ bindsym $mod+c kill
 
 # Start your launcher
 bindsym $mod+r exec $menu
+
+bindsym $mod+y exec flatpak run org.jellyfin.JellyfinDesktop
 
 # Script output changer
 bindsym $mod+p exec sh $HOME/.config/sway/cambiar_audio.sh
