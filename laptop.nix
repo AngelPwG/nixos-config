@@ -47,8 +47,8 @@ let
 in
 {
   imports = [
-    ./hardware-configuration.nix # El hardware scan específico de tu laptop
-    ./common.nix                 # Tu configuración global
+    ./hardware-laptop.nix
+    ./common.nix
   ];
 
   networking.hostName = "nixos-laptop";

@@ -1,6 +1,6 @@
 # Autostart
+exec XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS" quickshell -c ~/.local/JES/quickshell
 exec udiskie
-exec mako
 exec gammastep
 
 # Style
@@ -75,13 +75,12 @@ set $term alacritty
 ## Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --hide-scroll | xargs swaymsg exec --
+set $menu jes-cli toggleLaunch
 
 ## Output configuration
 # Default wallpaper 
 # output * bg /home/piwi_angel/Descargas/background.jpg fill
 
-exec_always $HOME/.config/sway/random_bg.sh
 # Behavior
 focus_follows_mouse yes
 
@@ -117,7 +116,7 @@ bindsym $mod+y exec flatpak run org.jellyfin.JellyfinDesktop
 bindsym $mod+p exec sh $HOME/.config/sway/cambiar_audio.sh
 
 # Dismiss notifications
-bindsym Control+space exec makoctl dismiss
+# bindsym Control+space exec makoctl dismiss
 
 # Screenshot with grim and swappy
 bindsym print exec grim - | swappy -f -
@@ -241,9 +240,9 @@ bindsym --locked XF86AudioPrev exec mpc prev
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    swaybar_command waybar
-    }
+#bar {
+#    swaybar_command waybar
+#    }
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 

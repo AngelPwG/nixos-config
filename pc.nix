@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./hardware-configuration.nix # El hardware scan específico de tu PC
-    ./common.nix                 # Tu configuración global
+    ./hardware-pc.nix
+    ./common.nix
   ];
 
-  networking.hostName = "nixos-pc"; # Recomendado: ponle un nombre distinto a la laptop
+  networking.hostName = "nixos-pc";
 }

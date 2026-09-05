@@ -1,12 +1,6 @@
 { config, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-in
-{
-  imports = [
-    (import "${home-manager}/nixos")
-  ];
 
+{
   nixpkgs.config.allowUnfree = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -79,6 +73,10 @@ in
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
+  services.jes = {
+    enable = true;
+    users = [ "angelpwg" ];
+  };
 
   system.stateVersion = "26.05";
   home-manager.users.angelpwg = import ./home.nix;
