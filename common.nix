@@ -1,6 +1,9 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
+  imports = [
+    inputs.silentSDDM.nixosModules.default
+  ];
   nixpkgs.config.allowUnfree = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -10,7 +13,8 @@
    enable = true;
    enable32Bit = true;
   };
-
+  home-manager.backupFileExtension = "backup";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   networking.networkmanager.enable = true;
   time.timeZone = "America/Mazatlan";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -18,8 +22,20 @@
   services.xserver.enable = true;
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
-    theme = "catppuccin-mocha-mauve";
+  };
+  programs.silentSDDM = {
+    enable = true;
+    
+    theme = "catppuccin-mocha"; 
+    
+    settings = {
+      LoginScreen = {
+        background = "${./dotfiles/sway/bg.jpg}";
+      };
+      LockScreen = {
+        background = "${./dotfiles/sway/bg.jpg}";
+      };
+    };
   };
 
   services.flatpak.enable = true;
@@ -51,6 +67,7 @@
   };
 
   programs.sway.enable = true;
+  
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -64,10 +81,6 @@
   environment.systemPackages = with pkgs; [
     neovim git wl-clipboard alacritty
     zellij gnumake cargo wget
-    (catppuccin-sddm.override {
-      flavor = "mocha";
-      background = "${./dotfiles/sway/bg.jpg}";
-    })
   ];
 
   fonts.packages = with pkgs; [

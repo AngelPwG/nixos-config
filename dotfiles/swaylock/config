@@ -4,19 +4,20 @@ font=Rubik
 font-size=23
 
 clock
-timestr=%R
-#datestr=%a, %e of %B
+timestr=%H:%M
+datestr=%A, %e de %B 
 
-color=000000dd
+screenshots
+effect-blur=15x3
+fade-in=0.2 
 
-#fade-in=0.1
-#effect-blur=20x2
-#effect-greyscale
-#effect-scale=0.3
+# Nota: Si prefieres usar una imagen de fondo fija en lugar del desenfoque, 
+# borra la línea "screenshots" y usa:
+# image=/ruta/absoluta/a/tu/wallpaper.jpg
 
 indicator
 indicator-radius=80
-indicator-thickness=10
+indicator-thickness=7 
 indicator-caps-lock
 
 key-hl-color=d4d4d4
@@ -24,32 +25,29 @@ caps-lock-key-hl-color=d4d4d4
 
 separator-color=00000000
 
-inside-color=000000ff
-inside-clear-color=00000099
-inside-caps-lock-color=00000099
-inside-ver-color=00000099
-inside-wrong-color=00000099
+inside-color=00000044
+inside-clear-color=00000044
+inside-caps-lock-color=00000044
+inside-ver-color=00000044
+inside-wrong-color=00000044
 
-ring-color=1c1c1c
-ring-clear-color=1c1c1c
-ring-caps-lock-color=1c1c1c
-ring-ver-color=1c1c1c
-ring-wrong-color=400000
+ring-color=ffffff44
+ring-clear-color=ffffff44
+ring-caps-lock-color=ffffff44
+ring-ver-color=00aaff88 
+ring-wrong-color=ee2e2488
 
 line-color=00000000
-line-clear-color=d4d4d4
-line-caps-lock-color=d4d4d4
-line-ver-color=d9d8d8FF
-line-wrong-color=ee2e24FF
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
 
-text-color=c9c9c9
-text-clear-color=c9c9c9
-text-ver-color=c9c9c9
-text-wrong-color=c9c9c9
+text-color=ffffff
+text-clear-color=ffffff
+text-ver-color=ffffff
+text-wrong-color=ee2e24
 
 bs-hl-color=470400
 caps-lock-bs-hl-color=470400
-# caps-lock-key-hl-color=ffd204FF
-# caps-lock-bs-hl-color=ee2e24FF
-# disable-caps-lock-text
 text-caps-lock-color=d4d4d4

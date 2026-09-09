@@ -43,11 +43,25 @@
       };
     };
   };
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      image = "${./dotfiles/sway/bg.jpg}";
+      clock = true;
+      fade-in = 0.5;
 
+      indicator-radius = 120;
+      indicator-thickness = 20;
+      ring-color = "89b4fa";
+      inside-color = "1e1e2e88";
+      key-hl-color = "a6e3a1";
+      text-color = "cdd6f4";
+    };
+  };
   xdg.configFile."sway".source = ./dotfiles/sway;
   xdg.configFile."swappy".source = ./dotfiles/swappy;
   xdg.configFile."alacritty".source = ./dotfiles/alacritty;
-  xdg.configFile."swaylock".source = ./dotfiles/swaylock;
   xdg.configFile."swaynag".source = ./dotfiles/swaynag;
   programs.home-manager.enable = true;
 }
