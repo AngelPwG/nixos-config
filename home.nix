@@ -16,7 +16,7 @@
     coreutils lxqt.lxqt-policykit udiskie
     pulseaudio firefox-devedition 
     thunar zip unzip p7zip vesktop cava
-    ffmpeg
+    ffmpeg prismlauncher
   ];
   home.pointerCursor = {
     name = "Catppuccin-Mocha-Dark-Cursors";
@@ -63,5 +63,6 @@
   xdg.configFile."swappy".source = ./dotfiles/swappy;
   xdg.configFile."alacritty".source = ./dotfiles/alacritty;
   xdg.configFile."swaynag".source = ./dotfiles/swaynag;
+  xdg.configFile."nvim".source = ./dotfiles/nvim;
   programs.home-manager.enable = true;
 }
