@@ -1,5 +1,22 @@
 { config, inputs, pkgs, ... }:
+let
+  sung = pkgs.symlinkJoin {
+    name = "sung";
 
+    paths = [
+      inputs.sung.packages.${pkgs.system}.default
+    ];
+
+    nativeBuildInputs = [
+      pkgs.makeWrapper
+    ];
+
+    postBuild = ''
+      wrapProgram $out/bin/sung \
+        --set QT_QUICK_BACKEND software
+    '';
+  };
+in
 {
   imports = [
     inputs.silentSDDM.nixosModules.default
@@ -98,7 +115,10 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
-  
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+  }; 
   services.xserver.wacom.enable = true;
   security.polkit.enable = true;
   services.udisks2.enable = true;
@@ -106,6 +126,8 @@
   environment.systemPackages = with pkgs; [
     neovim git wl-clipboard alacritty
     zellij gnumake cargo wget
+    cisco-packet-tracer_9 gamescope
+    sung
   ];
 
   fonts.packages = with pkgs; [

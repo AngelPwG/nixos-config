@@ -15,6 +15,11 @@
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sung = {
+      url = "github:surajklmn/Sung/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, jes, home-manager, ... } @ inputs: {
