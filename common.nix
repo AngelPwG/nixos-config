@@ -20,6 +20,7 @@ in
 {
   imports = [
     inputs.silentSDDM.nixosModules.default
+    ./jes-bar-fix.nix
   ];
   nixpkgs.config.allowUnfree = true;
   boot.loader.systemd-boot.enable = true;
