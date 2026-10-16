@@ -10,7 +10,10 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    larpgym = {
+      url = "github:AngelPwG/larpgym";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";

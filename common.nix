@@ -129,6 +129,7 @@ in
     zellij gnumake cargo wget
     cisco-packet-tracer_9 gamescope
     sung
+    inputs.larpgym.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   fonts.packages = with pkgs; [

@@ -40,6 +40,26 @@
         "type": "github"
       }
     },
+    "larpgym": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792117643,
+        "narHash": "sha256-E2o+Cd/sZ9IE6+PevxtZkavzy8qh/o0OHXjJK6r/nPE=",
+        "owner": "AngelPwG",
+        "repo": "larpgym",
+        "rev": "93943a7035ed5f2af714ee6ff309e50f4b7f95df",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AngelPwG",
+        "repo": "larpgym",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1788187754,
@@ -92,6 +112,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "jes": "jes",
+        "larpgym": "larpgym",
         "nixpkgs": "nixpkgs_2",
         "silentSDDM": "silentSDDM",
         "sung": "sung"

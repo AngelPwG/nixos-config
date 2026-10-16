@@ -1,1 +1,8 @@
 hardware-configuration.nix
+client.toml
+token
+token.*
+*.token
+*.token.*
+server.env
+/secrets/
