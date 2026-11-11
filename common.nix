@@ -41,6 +41,7 @@ in
   services.displayManager.sddm = {
     enable = true;
   };
+  programs.hyprland.enable = true;
   programs.silentSDDM = {
     enable = true;
     
@@ -129,7 +130,6 @@ in
     zellij gnumake cargo wget
     cisco-packet-tracer_9 gamescope
     sung
-    inputs.larpgym.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   fonts.packages = with pkgs; [
@@ -138,6 +138,9 @@ in
   services.jes = {
     enable = true;
     users = [ "angelpwg" ];
+  };
+  home-manager.extraSpecialArgs = {
+    inherit inputs;
   };
 
   system.stateVersion = "26.05";

@@ -1,5 +1,24 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
+  imports = [
+    inputs.caelestia-shell.homeManagerModules.default
+  ];
 
+  programs.caelestia = {
+    enable = true;
+    cli.enable = true;
+    systemd.enable = false;
+  };
+
+  xdg.configFile."hypr" = {
+    source = "${inputs.caelestia-dots}/hypr";
+    recursive = true;
+  };
+
+  xdg.configFile."caelestia/hypr-vars.lua".source =
+  ./dotfiles/caelestia/hypr-vars.lua;
+
+  xdg.configFile."caelestia/hypr-user.lua".source =
+  ./dotfiles/caelestia/hypr-user.lua;
   home.username = "angelpwg";
   home.homeDirectory = "/home/angelpwg";
   home.stateVersion = "26.05";
@@ -59,40 +78,6 @@
       text-color = "cdd6f4";
     };
   };
-  home.activation.larpgymConfig =
-  config.lib.dag.entryAfter [ "writeBoundary" ] ''
-    config_dir="${config.xdg.configHome}/larpgym"
-
-    run mkdir -p "$config_dir"
-    run chmod 700 "$config_dir"
-
-    if [ ! -e "$config_dir/client.toml" ] &&
-       [ ! -L "$config_dir/client.toml" ]; then
-      run install -m 600 ${
-        pkgs.writeText "larpgym-client-template.toml" ''
-          timezone = "America/Mazatlan"
-          sync_interval_secs = 60
-          token_file = "${config.xdg.configHome}/larpgym/client.token"
-
-          # Descomenta y reemplaza con la URL raíz de tu backend.
-          # server_url = "https://TU-SERVIDOR"
-        ''
-      } "$config_dir/client.toml"
-    fi
-
-    if [ ! -e "$config_dir/client.token" ] &&
-       [ ! -L "$config_dir/client.token" ]; then
-      run install -m 600 /dev/null "$config_dir/client.token"
-    fi
-
-    if [ -f "$config_dir/client.toml" ]; then
-      run chmod 600 "$config_dir/client.toml"
-    fi
-
-    if [ -f "$config_dir/client.token" ]; then
-      run chmod 600 "$config_dir/client.token"
-    fi
-  '';
   xdg.configFile."sway".source = ./dotfiles/sway;
   xdg.configFile."swappy".source = ./dotfiles/swappy;
   xdg.configFile."alacritty".source = ./dotfiles/alacritty;
